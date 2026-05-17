@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  
+  <title>LUMINA — Sua Vitrine. Seu Estilo.</title>
+  <meta name="description" content="LUMINA — A plataforma de compras mais exclusiva. Produtos selecionados com curadoria especial.">
+  <meta property="og:title" content="LUMINA — Sua Vitrine. Seu Estilo.">
+  <meta property="og:description" content="Descubra produtos exclusivos com a melhor experiência de compra.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0A0A0F">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="mesh-bg"></div>
+
+  <header id="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#" onclick="resetFilters()">
+        <div class="logo-icon">L</div>
+        <div>
+          <div class="logo-text">LUMINA</div>
+          <div class="logo-tagline">Sua vitrine. Seu estilo.</div>
+        </div>
+      </a>
+
+      <div class="search-wrap">
+        <div class="search-expand" id="header-search">
+          <span style="color:var(--text3);font-size:15px">🔍</span>
+          <input type="text" id="search-input" placeholder="Buscar produtos, códigos..." autocomplete="off"
+            oninput="onSearchInput(this.value)" onkeydown="onSearchKey(event)" onfocus="showSuggestions()" onblur="hideSuggestions()">
+        </div>
+        <div class="suggestions-box" id="suggestions-box"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn-icon" title="Carrinho" onclick="toast('💬 Fale pelo WhatsApp para finalizar seu pedido!','info')">
+          🛒
+          <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav-cats">
+      <div class="nav-cats-inner" id="nav-cats">
+        <button class="cat-btn active" data-cat="all" onclick="filterCat(this,'all')">✨ Todos</button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="profile-section" aria-label="Perfil da Loja">
+    <div class="profile-inner">
+      <div class="profile-avatar-wrap" onclick="openProfileStories()">
+        <div class="profile-ring">
+          <img src="https://picsum.photos/150/150?random=99" alt="LUMINA Avatar" class="profile-avatar">
+        </div>
+      </div>
+      
+      <div class="profile-info">
+        <h1 class="profile-username">lumina.store</h1>
+        <div class="profile-bio">
+          <strong>LUMINA — Sua Vitrine.</strong><br>
+          ✨ Qualidade e estilo em cada produto.<br>
+          📍 São Paulo, SP<br>
+          <a href="#" class="profile-link">linktr.ee/luminastore</a>
+        </div>
+        
+        <div class="profile-actions">
+          <button class="btn-profile-primary" onclick="window.open('https://wa.me/5511999999999', '_blank')">Mensagem</button>
+          <button class="btn-profile-secondary">Seguir</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stories-section" aria-label="Stories de Produtos">
+    <div class="stories-inner" id="stories-bar"></div>
+  </section>
+
+  <main>
+    <div class="filter-section">
+      <div class="filter-row">
+        <button class="filter-chip active" data-filter="all" onclick="applyFilter(this,'all')">🌟 Todos</button>
+        <button class="filter-chip" data-filter="new" onclick="applyFilter(this,'new')">🆕 Novidades</button>
+        <button class="filter-chip" data-filter="promo" onclick="applyFilter(this,'promo')">🔥 Promoções</button>
+        <button class="filter-chip" data-filter="featured" onclick="applyFilter(this,'featured')">⭐ Destaques</button>
+        <button class="filter-chip" data-filter="liked" onclick="applyFilter(this,'liked')">❤️ Curtidos</button>
+        <select class="sort-select" id="sort-select" aria-label="Ordenar produtos" onchange="applySort(this.value)">
+          <option value="default">Relevância</option>
+          <option value="price-asc">Menor preço</option>
+          <option value="price-desc">Maior preço</option>
+          <option value="newest">Mais novo</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <h2 class="section-title">Nossos <span>Produtos</span></h2>
+      <span class="section-count" id="product-count">0 produtos</span>
+    </div>
+
+    <div class="products-grid" id="products-grid">
+      <div class="skeleton"><div class="skel-img"></div><div class="skel-line w80"></div><div class="skel-line w60"></div><div class="skel-line w40"></div><div class="skel-btn"></div></div>
+      <div class="skeleton"><div class="skel-img"></div><div class="skel-line w80"></div><div class="skel-line w60"></div><div class="skel-line w40"></div><div class="skel-btn"></div></div>
+      <div class="skeleton"><div class="skel-img"></div><div class="skel-line w80"></div><div class="skel-line w60"></div><div class="skel-line w40"></div><div class="skel-btn"></div></div>
+    </div>
+
+    <section class="reels-section" aria-label="Reels em Destaque">
+      <h2 class="reels-title">🎬 <span>Reels</span> em Destaque</h2>
+      <div class="reels-container" id="reels-container"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand-info">
+        <div class="footer-logo">
+          <div class="logo-icon" style="width:32px;height:32px;font-size:14px">L</div>
+          <span class="logo-text" style="font-size:18px">LUMINA</span>
+        </div>
+        <p class="footer-tagline">A sua plataforma de compras exclusiva.<br>Qualidade e estilo em cada produto.</p>
+        <div class="footer-links">
+          <span class="footer-link" onclick="resetFilters()">Início</span>
+          <span class="footer-link" onclick="document.getElementById('products-grid').scrollIntoView({behavior:'smooth'})">Produtos</span>
+          <span class="footer-link" onclick="document.querySelector('.reels-section').scrollIntoView({behavior:'smooth'})">Reels</span>
+          <a class="footer-link" href="https://wa.me/5511999999999" target="_blank">Contato</a>
+        </div>
+      </div>
+      
+      <div class="footer-social">
+        <div class="social-row">
+          <a class="social-btn" href="#" title="Instagram" aria-label="Instagram">📸</a>
+          <a class="social-btn" href="#" title="TikTok" aria-label="TikTok">🎵</a>
+          <a class="social-btn" href="https://wa.me/5511999999999" title="WhatsApp" target="_blank" aria-label="WhatsApp">💬</a>
+          <a class="social-btn" href="#" title="Facebook" aria-label="Facebook">📘</a>
+        </div>
+        <div class="footer-copy">© 2026 LUMINA. Todos os direitos reservados.</div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="fab-wa" title="Falar no WhatsApp" aria-label="WhatsApp" onclick="window.open('https://wa.me/5511999999999?text=Olá! Vi seus produtos e gostaria de saber mais.','_blank')">💬</button>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <div class="story-modal" id="story-modal" role="dialog" aria-modal="true">
+    <div class="story-modal-inner">
+      <div class="story-progress-bar" id="story-progress-bar"></div>
+      <div class="story-modal-header">
+        <div class="story-author">
+          <div class="story-author-img" id="story-author-img">✨</div>
+          <span class="story-author-name" id="story-author-name">LUMINA</span>
+        </div>
+        <button class="story-close-btn" onclick="closeStory()" aria-label="Fechar Story">✕</button>
+      </div>
+      <div class="story-content" id="story-content">
+        <div class="story-tap-prev" onclick="prevStory()" aria-label="Story Anterior"></div>
+        <div class="story-tap-next" onclick="nextStory()" aria-label="Próximo Story"></div>
+      </div>
+      <div class="story-cta-bar">
+        <button class="btn-story-cta" id="story-cta-btn">Ver Ofertas ✨</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="reel-modal" id="reel-modal" role="dialog" aria-modal="true">
+    <div class="reel-modal-inner">
+      <button class="reel-nav-btn reel-prev" onclick="changeReel(-1)" aria-label="Reel Anterior">◀</button>
+      <div class="reel-video-wrap" id="reel-video-wrap">
+        <div class="reel-modal-overlay"></div>
+        <div class="reel-modal-top">
+          <button class="reel-close" onclick="closeReel()" aria-label="Fechar Reel">✕</button>
+        </div>
+        <div class="reel-modal-right" id="reel-modal-actions"></div>
+        <div class="reel-modal-bottom" id="reel-modal-info"></div>
+      </div>
+      <button class="reel-nav-btn reel-next" onclick="changeReel(1)" aria-label="Próximo Reel">▶</button>
+    </div>
+  </div>
+
+  <div class="welcome-modal" id="welcome-modal" role="dialog" aria-modal="true">
+    <div class="welcome-modal-overlay" onclick="closeWelcomeModal()"></div>
+    <div class="welcome-modal-inner">
+      <button class="welcome-close" onclick="closeWelcomeModal()" aria-label="Fechar Modal">✕</button>
+      <div class="welcome-content">
+        <div class="welcome-badge">🎁 Sorteio Especial</div>
+        <h2 class="welcome-title">Bem-vindo à LUMINA!</h2>
+        <p class="welcome-desc">Deixe seu WhatsApp abaixo para desbloquear ofertas secretas e concorrer a um super prêmio todos os meses.</p>
+        
+        <div class="welcome-form">
+          <input type="tel" id="welcome-phone" placeholder="Seu WhatsApp (Ex: 11999999999)" autocomplete="off" aria-label="Seu número de WhatsApp">
+          <button class="btn-welcome-submit" onclick="submitWelcomeLead()">Quero Concorrer ✨</button>
+        </div>
+        
+        <p class="welcome-footer">🔒 Seus dados estão 100% seguros conosco.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
