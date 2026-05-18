@@ -2,7 +2,7 @@
 // 1. DATA LAYER — BANCO DE DADOS LOCAL
 // ═══════════════════════════════════════════════
 
-const WHATSAPP_NUMBER = "5511999999999";
+const WHATSAPP_NUMBER = "5511916072188";
 const SITE_URL = window.location.origin + window.location.pathname;
 
 const products = [
@@ -884,15 +884,15 @@ document.addEventListener('DOMContentLoaded', lockHorizontalPageScroll);
 
 // Aqui você muda de quanto em quanto tempo aparece.
 // 10000 = 10 segundos.
-const SOCIAL_PROOF_INTERVAL = 10000;
+const SOCIAL_PROOF_INTERVAL = 50000;
 
 // Aqui você muda quanto tempo o aviso fica visível.
 // 4500 = 4,5 segundos.
-const SOCIAL_PROOF_VISIBLE_TIME = 4500;
+const SOCIAL_PROOF_VISIBLE_TIME = 6500;
 
 // Quantidade mínima e máxima de pessoas online.
 const SOCIAL_PROOF_MIN_PEOPLE = 1;
-const SOCIAL_PROOF_MAX_PEOPLE = 1000;
+const SOCIAL_PROOF_MAX_PEOPLE = 50;
 
 // Lista de nomes que vão aparecer aleatoriamente.
 // Pode adicionar mais nomes aqui.
