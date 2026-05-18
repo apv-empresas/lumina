@@ -848,3 +848,215 @@ function submitWelcomeLead() {
   toast('🎉 Cadastro realizado! Boa sorte!', 'success');
   closeWelcomeModal();
 }
+
+
+// ═══════════════════════════════════════════════
+// CORREÇÃO RESPONSIVA — EVITA ARRASTO LATERAL DO SITE
+// Não remove nenhuma função original
+// ═══════════════════════════════════════════════
+
+function lockHorizontalPageScroll() {
+  document.documentElement.style.overflowX = 'hidden';
+  document.body.style.overflowX = 'hidden';
+
+  const reelsSection = document.querySelector('.reels-section');
+  const reelsContainer = document.querySelector('.reels-container');
+
+  if (reelsSection) {
+    reelsSection.style.overflowX = 'hidden';
+    reelsSection.style.maxWidth = '100%';
+  }
+
+  if (reelsContainer) {
+    reelsContainer.style.maxWidth = '100%';
+    reelsContainer.style.overscrollBehaviorX = 'contain';
+  }
+}
+
+window.addEventListener('load', lockHorizontalPageScroll);
+window.addEventListener('resize', lockHorizontalPageScroll);
+document.addEventListener('DOMContentLoaded', lockHorizontalPageScroll);
+
+// ═══════════════════════════════════════════════
+// MODAL DE PROVA SOCIAL DINÂMICO — LUMINA
+// Nomes, produtos e quantidade de pessoas mudam automaticamente
+// ═══════════════════════════════════════════════
+
+// Aqui você muda de quanto em quanto tempo aparece.
+// 10000 = 10 segundos.
+const SOCIAL_PROOF_INTERVAL = 10000;
+
+// Aqui você muda quanto tempo o aviso fica visível.
+// 4500 = 4,5 segundos.
+const SOCIAL_PROOF_VISIBLE_TIME = 4500;
+
+// Quantidade mínima e máxima de pessoas online.
+const SOCIAL_PROOF_MIN_PEOPLE = 1;
+const SOCIAL_PROOF_MAX_PEOPLE = 1000;
+
+// Lista de nomes que vão aparecer aleatoriamente.
+// Pode adicionar mais nomes aqui.
+const socialProofNames = [
+  "Thiago",
+  "Mariana",
+  "Lucas",
+  "Camila",
+  "Rafael",
+  "Amanda",
+  "Bruno",
+  "Juliana",
+  "Felipe",
+  "Bianca",
+  "Gustavo",
+  "Larissa",
+  "Eduardo",
+  "Patrícia",
+  "Renan",
+  "Isabela",
+  "Marcelo",
+  "Fernanda",
+  "Diego",
+  "Vanessa",
+  "Rodrigo",
+  "Aline",
+  "Caio",
+  "Natália",
+  "André",
+  "Priscila",
+  "Leandro",
+  "Carolina",
+  "Vitor",
+  "Beatriz"
+];
+
+// Modelos de mensagens.
+// Elas serão montadas automaticamente com nome, produto e número de pessoas.
+const socialProofTemplates = [
+  {
+    icon: "👀",
+    title: "LUMINA agora",
+    type: "people"
+  },
+  {
+    icon: "🛒",
+    title: "Compra recente",
+    type: "purchase"
+  },
+  {
+    icon: "🔥",
+    title: "Produto em alta",
+    type: "hot"
+  },
+  {
+    icon: "✨",
+    title: "Movimento na loja",
+    type: "movement"
+  },
+  {
+    icon: "💎",
+    title: "Interesse recente",
+    type: "interest"
+  }
+];
+
+let socialProofTimer = null;
+let socialProofHideTimer = null;
+
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getRandomItem(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+function getRandomProduct() {
+  if (typeof products !== "undefined" && products.length > 0) {
+    return getRandomItem(products);
+  }
+
+  return {
+    code: "PROD-008",
+    name: "Produto especial"
+  };
+}
+
+function buildSocialProofMessage() {
+  const template = getRandomItem(socialProofTemplates);
+  const name = getRandomItem(socialProofNames);
+  const people = getRandomNumber(SOCIAL_PROOF_MIN_PEOPLE, SOCIAL_PROOF_MAX_PEOPLE);
+  const product = getRandomProduct();
+
+  let text = "";
+
+  if (template.type === "people") {
+    text = `${people} pessoa${people > 1 ? "s" : ""} estão vendo a LUMINA neste momento.`;
+  }
+
+  if (template.type === "purchase") {
+    text = `${name} acabou de levar ${product.name}.`;
+  }
+
+  if (template.type === "hot") {
+    text = `${people} pessoa${people > 1 ? "s" : ""} visualizaram ${product.name} recentemente.`;
+  }
+
+  if (template.type === "movement") {
+    text = `${people} visitante${people > 1 ? "s" : ""} estão explorando os produtos da LUMINA agora.`;
+  }
+
+  if (template.type === "interest") {
+    text = `${name} acabou de se interessar pelo ${product.code}.`;
+  }
+
+  return {
+    icon: template.icon,
+    title: template.title,
+    text: text
+  };
+}
+
+function showSocialProof() {
+  const modal = document.getElementById("social-proof-modal");
+  const icon = document.getElementById("social-proof-icon");
+  const title = document.getElementById("social-proof-title");
+  const text = document.getElementById("social-proof-text");
+
+  if (!modal || !icon || !title || !text) return;
+
+  const message = buildSocialProofMessage();
+
+  icon.textContent = message.icon;
+  title.textContent = message.title;
+  text.textContent = message.text;
+
+  modal.classList.add("show");
+
+  clearTimeout(socialProofHideTimer);
+
+  socialProofHideTimer = setTimeout(() => {
+    modal.classList.remove("show");
+  }, SOCIAL_PROOF_VISIBLE_TIME);
+}
+
+function closeSocialProof() {
+  const modal = document.getElementById("social-proof-modal");
+
+  if (modal) {
+    modal.classList.remove("show");
+  }
+
+  clearTimeout(socialProofHideTimer);
+}
+
+function startSocialProof() {
+  clearInterval(socialProofTimer);
+
+  socialProofTimer = setInterval(() => {
+    showSocialProof();
+  }, SOCIAL_PROOF_INTERVAL);
+}
+
+window.addEventListener("load", () => {
+  startSocialProof();
+});
