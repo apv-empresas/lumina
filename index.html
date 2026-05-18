@@ -72,7 +72,7 @@
         </div>
         
         <div class="profile-actions">
-          <button class="btn-profile-primary" onclick="window.open('https://wa.me/5511999999999', '_blank')">Mensagem</button>
+          <button class="btn-profile-primary" onclick="window.open('https://wa.me/5511916072188', '_blank')">Mensagem</button>
           <button class="btn-profile-secondary">Seguir</button>
         </div>
       </div>
@@ -129,7 +129,7 @@
           <span class="footer-link" onclick="resetFilters()">Início</span>
           <span class="footer-link" onclick="document.getElementById('products-grid').scrollIntoView({behavior:'smooth'})">Produtos</span>
           <span class="footer-link" onclick="document.querySelector('.reels-section').scrollIntoView({behavior:'smooth'})">Reels</span>
-          <a class="footer-link" href="https://wa.me/5511999999999" target="_blank">Contato</a>
+          <a class="footer-link" href="https://wa.me/5511916072188" target="_blank">Contato</a>
         </div>
       </div>
       
@@ -137,7 +137,7 @@
         <div class="social-row">
           <a class="social-btn" href="#" title="Instagram" aria-label="Instagram">📸</a>
           <a class="social-btn" href="#" title="TikTok" aria-label="TikTok">🎵</a>
-          <a class="social-btn" href="https://wa.me/5511999999999" title="WhatsApp" target="_blank" aria-label="WhatsApp">💬</a>
+          <a class="social-btn" href="https://wa.me/5511916072188" title="WhatsApp" target="_blank" aria-label="WhatsApp">💬</a>
           <a class="social-btn" href="#" title="Facebook" aria-label="Facebook">📘</a>
         </div>
         <div class="footer-copy">© 2026 LUMINA. Todos os direitos reservados.</div>
@@ -145,7 +145,7 @@
     </div>
   </footer>
 
-  <button class="fab-wa" title="Falar no WhatsApp" aria-label="WhatsApp" onclick="window.open('https://wa.me/5511999999999?text=Olá! Vi seus produtos e gostaria de saber mais.','_blank')">💬</button>
+  <button class="fab-wa" title="Falar no WhatsApp" aria-label="WhatsApp" onclick="window.open('https://wa.me/5511916072188?text=Olá! Vi seus produtos e gostaria de saber mais.','_blank')">💬</button>
 
   <div class="toast-container" id="toast-container"></div>
 
@@ -194,7 +194,7 @@
         <p class="welcome-desc">Deixe seu WhatsApp abaixo para desbloquear ofertas secretas e concorrer a um super prêmio todos os meses.</p>
         
         <div class="welcome-form">
-          <input type="tel" id="welcome-phone" placeholder="Seu WhatsApp (Ex: 11999999999)" autocomplete="off" aria-label="Seu número de WhatsApp">
+          <input type="tel" id="welcome-phone" placeholder="Seu WhatsApp (Ex: 11916072188)" autocomplete="off" aria-label="Seu número de WhatsApp">
           <button class="btn-welcome-submit" onclick="submitWelcomeLead()">Quero Concorrer ✨</button>
         </div>
         
@@ -202,6 +202,18 @@
       </div>
     </div>
   </div>
+
+<!-- Modal de Prova Social -->
+<div class="social-proof-modal" id="social-proof-modal">
+  <div class="social-proof-icon" id="social-proof-icon">👀</div>
+
+  <div class="social-proof-content">
+    <div class="social-proof-title" id="social-proof-title">LUMINA agora</div>
+    <div class="social-proof-text" id="social-proof-text">10 pessoas estão vendo a LUMINA agora.</div>
+  </div>
+
+  <button class="social-proof-close" onclick="closeSocialProof()" aria-label="Fechar aviso">✕</button>
+</div>
 
   <script src="script.js"></script>
 
