@@ -25,26 +25,28 @@ const products = [
     videoUrl: "https://down-zl-br.vod.susercontent.com/api/v4/11110103/mms/br-11110103-6kfko-m3y30zuz7vmj01.16000051734559266.mp4"
   }
 
-  /*
+  
   ,
   {
     id: "002",
     code: "PROD-002",
-    name: "Mochila Executive Dark",
-    category: "Acessórios",
+    name: "Jaqueta Puffer Masculina",
+    category: "Roupas",
     tags: ["mochila", "trabalho", "executivo", "destaque"],
-    price: "R$ 189,90",
-    originalPrice: "",
+    price: "R$ 75,90",
+    originalPrice: "100,90",
     discount: "",
-    description: "Mochila premium com compartimento para notebook 15\". Material impermeável e antifurto.",
-    image: "https://picsum.photos/400/400?random=2",
+    description: "Bobojaco Bomber Blusa de Frio Inverno Neve Com Touca Removível\". Material impermeável.",
+    image: "https://down-br.img.susercontent.com/file/br-11134207-81ztc-mki8dkgnqepuf3.webp",
     externalLink: "https://wa.me/" + WHATSAPP_NUMBER,
-    whatsappMessage: "Olá! Tenho interesse no produto: Mochila Executive Dark (PROD-002)",
+    whatsappMessage: "Olá! Tenho interesse no produto: Bobojaco Bomber Blusa de Frio Inverno Neve Com Touca Removível (PROD-002)",
     featured: true,
-    isNew: false,
+    isNew: true,
     hasVideo: false,
-    videoUrl: ""
+    videoUrl: "https://down-tx-br.vod.susercontent.com/api/v4/11110103/mms/br-11110103-6kfkr-m9ub33becz7d94.16000051747406121.mp4"
   },
+
+  /*
   {
     id: "003",
     code: "PROD-003",
