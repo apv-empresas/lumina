@@ -217,16 +217,26 @@ const reels = [
     description: "Carregamento rápido TIPO-C + USB para usar direto no carro."
   }
 
-  /*
+  
   ,
   {
     id: "r2",
-    productId: "004",
+    productId: "002",
+    videoUrl: "https://down-tx-br.vod.susercontent.com/api/v4/11110103/mms/br-11110103-6kfkr-m9ub33becz7d94.16000051747406121.mp4",
+    thumbnail: "https://down-br.img.susercontent.com/file/sg-11134201-820mg-mnbxgjonuwp2df.webp",
+    title: "Fones Aura Wireless em ação!",
+    description: "Cancelamento de ruído ativo incrível"
+  },
+  /*
+  {
+    id: "r2",
+    productId: "003",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1",
     thumbnail: "https://picsum.photos/220/390?random=21",
     title: "Fones Aura Wireless em ação!",
     description: "Cancelamento de ruído ativo incrível"
   }
+
   */
 ];
 
