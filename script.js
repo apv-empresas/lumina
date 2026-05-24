@@ -57,7 +57,7 @@ const products = [
     originalPrice: "R$ 150,90",
     discount: "",
     description: "O Coberdrom Sherpa Queen é um item de conforto e qualidade essencial para sua casa. Com dimensões de 2,40 x 2,20 metros, é perfeito para camas de tamanho Queen, Casal Padrão e King.",
-    image: "https://picsum.photos/400/400?random=3",
+    image: "https://down-br.img.susercontent.com/file/br-11134103-7r98o-mbwgm4er1up3b8.webp",
     externalLink: "https://wa.me/" + WHATSAPP_NUMBER,
     whatsappMessage: "Olá! Tenho interesse no produto: Coberdrom Sherpa 2,40m x 2,20m (PROD-003)",
     featured: true,
@@ -234,7 +234,7 @@ const reels = [
     id: "r3",
     productId: "003",
     videoUrl: "https://down-ws-br.vod.susercontent.com/api/v4/11110103/mms/br-11110103-6kfks-mbjq1q4sgtq001.16000051751123882.mp4",
-    thumbnail: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-lvuo8pv1uv062a@resize_w900_nl.webp",
+    thumbnail: "https://down-br.img.susercontent.com/file/br-11134103-7r98o-mbwgm4er1up3b8.webp",
     title: "Coberdrom Casal Queen Sherpa Edredrom Pele de Carneiro 2,40m x 2,20m",
     description: "Cancelamento de ruído ativo incrível"
   }
