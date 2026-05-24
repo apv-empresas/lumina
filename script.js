@@ -23,10 +23,10 @@ const products = [
     isNew: true,
     hasVideo: true,
     videoUrl: "https://down-zl-br.vod.susercontent.com/api/v4/11110103/mms/br-11110103-6kfko-m3y30zuz7vmj01.16000051734559266.mp4"
-  }
+  },
 
   
-  ,
+  
   {
     id: "002",
     code: "PROD-002",
@@ -46,25 +46,27 @@ const products = [
     videoUrl: "https://down-tx-br.vod.susercontent.com/api/v4/11110103/mms/br-11110103-6kfkr-m9ub33becz7d94.16000051747406121.mp4"
   },
 
-  /*
+  
   {
     id: "003",
     code: "PROD-003",
-    name: "Relógio Luminis S1",
-    category: "Relógios",
+    name: "Coberdrom Casal Queen Sherpa Edredrom Pele de Carneiro 2,40m x 2,20m",
+    category: "Casa",
     tags: ["relógio", "luxo", "promoção", "destaque"],
-    price: "R$ 449,90",
-    originalPrice: "R$ 699,90",
+    price: "R$ 120,90",
+    originalPrice: "R$ 150,90",
     discount: "",
-    description: "Smartwatch com tela AMOLED, GPS integrado e autonomia de 7 dias.",
+    description: "O Coberdrom Sherpa Queen é um item de conforto e qualidade essencial para sua casa. Com dimensões de 2,40 x 2,20 metros, é perfeito para camas de tamanho Queen, Casal Padrão e King.",
     image: "https://picsum.photos/400/400?random=3",
     externalLink: "https://wa.me/" + WHATSAPP_NUMBER,
-    whatsappMessage: "Olá! Tenho interesse no produto: Relógio Luminis S1 (PROD-003)",
+    whatsappMessage: "Olá! Tenho interesse no produto: Coberdrom Sherpa 2,40m x 2,20m (PROD-003)",
     featured: true,
-    isNew: false,
+    isNew: true,
     hasVideo: true,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    videoUrl: "https://down-ws-br.vod.susercontent.com/api/v4/11110103/mms/br-11110103-6kfks-mbjq1q4sgtq001.16000051751123882.mp4"
   },
+
+  /*
   {
     id: "004",
     code: "PROD-004",
@@ -227,17 +229,17 @@ const reels = [
     title: "Fones Aura Wireless em ação!",
     description: "Cancelamento de ruído ativo incrível"
   },
-  /*
+  
   {
-    id: "r2",
+    id: "r3",
     productId: "003",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1",
-    thumbnail: "https://picsum.photos/220/390?random=21",
-    title: "Fones Aura Wireless em ação!",
+    videoUrl: "https://down-ws-br.vod.susercontent.com/api/v4/11110103/mms/br-11110103-6kfks-mbjq1q4sgtq001.16000051751123882.mp4",
+    thumbnail: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-lvuo8pv1uv062a@resize_w900_nl.webp",
+    title: "Coberdrom Casal Queen Sherpa Edredrom Pele de Carneiro 2,40m x 2,20m",
     description: "Cancelamento de ruído ativo incrível"
   }
 
-  */
+  
 ];
 
 // ═══════════════════════════════════════════════
